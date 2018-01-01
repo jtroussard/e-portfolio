@@ -478,10 +478,6 @@
         {{ form.email }}
       </div>
       <div>
-        {{ form.subject.label }}
-        {{ form.subject }}
-      </div>
-      <div>
         {{ form.comments.label }}
         {% for message in form.comments.errors %}
           <div class="flash">{{ message }} </div>
