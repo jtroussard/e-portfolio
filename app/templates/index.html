@@ -41,7 +41,7 @@
       <div class="row banner">
         <div class="banner-text">
           <h1 class="responsive-headline">Nice to meet you.</h1>
-          <h3>My name is <span>Jacques Troussard</span>. I am a <span>software/AI programmer</span> and <span>webdesigner</span> developing creative and exciting solutions for a variety of problems. Please continue to learn more.
+          <h3>My name is <span>Jacques Troussard</span>. I am a <span>software/AI developer</span> and <span>webapp programmer</span> developing creative and exciting solutions for a variety of problems. Please continue to learn more.
           </h3>
           <hr />
           <ul class="social">
@@ -71,8 +71,8 @@
               <p class="address">
                 <span>Jacques Troussard</span>
                 <br>
-                <span>904 Brompton Street<br>
-                  Fredericksburg, VA 22401 US
+                <span>{{ base_data.street }}<br>
+                  {{ base_data.city }}, {{ base_data.state }} {{ base_data.zipcode}} US
                 </span>
                 <br>
                 <span>(925)478-0337</span>
@@ -82,7 +82,7 @@
             </div>
             <div class="columns download">
               <p>
-                <a href="static/files/CV_troussard.pdf" class="button"><i class="fa fa-download"></i>Download Resume</a>
+                <a href="static/files/CV-{{ base_data.zipcode }}-troussard.pdf" class="button"><i class="fa fa-download"></i>Download Resume</a>
               </p>
             </div>
           </div>

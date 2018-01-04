@@ -5,6 +5,7 @@ from flask_wtf import FlaskForm
 from flask_mail import Mail, Message
 from forms import ContactForm
 from lib.vars import *
+from lib import tools as t
 
 app = Flask(__name__)
 
@@ -14,6 +15,15 @@ mail = Mail(app)
 # Root Mapping
 @app.route('/', methods=['GET', 'POST'])
 def index():
+	loc = t.get_location()
+	zipcode = t.get_zipcode(loc)
+	homebase = t.nearest_base(zipcode)
+	base_data = None
+
+	for base in ADDRESSES:
+		if base['zipcode'] == homebase:
+			base_data = base
+
 	form = ContactForm()
 	jump=alert= None
 
@@ -32,8 +42,8 @@ def index():
 			msg.body = request.form['comments']
 			mail.send(msg)
 			alert = True
-			return render_template('index.html', form=form, jump=jump, alert=alert)
-	return render_template('index.html', form=form, jump=jump, alert=alert)
+			return render_template('index.html', form=form, jump=jump, alert=alert, homebase=homebase)
+	return render_template('index.html', form=form, jump=jump, alert=alert, base_data=base_data)
 
 # Start the server
 if __name__ == '__main__':
