@@ -2,7 +2,7 @@
 TARGET_EMAIL="jacques.troussard@gmail.com"
 
 #===ZipApi
-ZIP_API_KEY="5Fwd1MMcnCHVbx0aVtzjumA0RwjLVkKzEd9IGqWENEKocPlQI1wXX6Uq3ATGcFt1"
+ZIP_API_KEY="W8iDtl8sOgLNYEenctXKc0R69fytNOp9OPpP4mDqWOv8JhiVCjhkZgDy612M52hG"
 ZIP_FORMAT="json"
 ZIP_UNIT="mile"
 

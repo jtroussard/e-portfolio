@@ -49,7 +49,7 @@ def index():
 if __name__ == '__main__':
 
 	# Production
-	app.run()
+	#app.run()
 
 	# Development - Cloud 9
-	#app.run(host=os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)), debug=True)
+	app.run(host=os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)), debug=True)

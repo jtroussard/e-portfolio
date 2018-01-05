@@ -18,17 +18,21 @@ def get_zipcode(data):
 def nearest_base(data):
 	lowest = 12500 # approximate circumfrence of the earth
 	result = 00000 # 'winning' zipcode
-	for zip in HOMEBASES:
-		url = "https://www.zipcodeapi.com/rest/{}/distance.{}/{}/{}/{}".format(
-			ZIP_API_KEY, ZIP_FORMAT, zip, data, ZIP_UNIT)
-		with urllib.request.urlopen(url) as r_json:
-			distance =  json.loads(r_json.read().decode())['distance']
-			print(distance)
-			if distance < lowest:
-				print("new best zip code {}".format(zip))
-				lowest = distance
-				result = zip
-	return result
+	try:
+		for zip in HOMEBASES:
+			url = "https://www.zipcodeapi.com/rest/{}/distance.{}/{}/{}/{}".format(
+				ZIP_API_KEY, ZIP_FORMAT, zip, data, ZIP_UNIT)
+			with urllib.request.urlopen(url) as r_json:
+				distance =  json.loads(r_json.read().decode())['distance']
+				print(distance)
+				if distance < lowest:
+					print("new best zip code {}".format(zip))
+					lowest = distance
+					result = zip
+		return result
+	except urllib.error.URLError as e:
+		print(e.reason)
+		return nearest_base(data)
 
 
 
