@@ -3,10 +3,14 @@ import json
 from lib.vars import *
 
 def get_location():
-	with urllib.request.urlopen("https://geoip-db.com/json") as url:
-		data = json.loads(url.read().decode())
-		print(data)
-		return data
+	try:
+		with urllib.request.urlopen("https://geoip-db.com/json") as url:
+			data = json.loads(url.read().decode())
+			print(data)
+			return data
+	except urllib.error.URLError as e:
+		print(e.reason)
+		return get_location()
 
 def get_zipcode(data):
 	return data['postal']
