@@ -4,6 +4,7 @@ from lib.vars import *
 
 def get_location(request):
 	ip = request.environ['REMOTE_ADDR']
+	print("THIS IP ISSSSS -> {}".format(ip))
 	try:
 		with urllib.request.urlopen("https://ipapi.co/{}/json/".format(ip)) as url:
 			data = json.loads(url.read().decode())
