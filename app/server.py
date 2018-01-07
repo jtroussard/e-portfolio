@@ -16,6 +16,7 @@ mail = Mail(app)
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
+	print("HELLLLLLLLLLLLLLLLLO")
 	loc = t.get_location(request)
 	zipcode = t.get_zipcode(loc)
 	homebase = t.nearest_base(zipcode)
