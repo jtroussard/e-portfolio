@@ -15,7 +15,8 @@ mail = Mail(app)
 # Root Mapping
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	loc = t.get_location()
+
+	loc = t.get_location(request)
 	zipcode = t.get_zipcode(loc)
 	homebase = t.nearest_base(zipcode)
 	base_data = None

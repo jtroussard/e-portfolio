@@ -2,9 +2,10 @@ import urllib.request
 import json
 from lib.vars import *
 
-def get_location():
+def get_location(request):
+	ip = request.environ['REMOTE_ADDR']
 	try:
-		with urllib.request.urlopen("https://ipapi.co/json/") as url:
+		with urllib.request.urlopen("https://ipapi.co/{}/json/".format(ip)) as url:
 			data = json.loads(url.read().decode())
 			print(data)
 			return data
