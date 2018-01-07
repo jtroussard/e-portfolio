@@ -4,13 +4,17 @@ from lib.vars import *
 
 def get_location():
 	try:
-		with urllib.request.urlopen("https://geoip-db.com/json") as url:
+		with urllib.request.urlopen("https://ipapi.co/json/") as url:
 			data = json.loads(url.read().decode())
 			print(data)
 			return data
-	except urllib.error.URLError as e:
-		print(e.reason)
+	except urllib.error.URLError as err_url:
+		print(err_url.reason)
 		return get_location()
+	except urllib.error.HTTPError as err_http:
+		print(err_http.reason)
+		return {'postal': DEFAULT_ZIP}
+
 
 def get_zipcode(data):
 	return data['postal']
@@ -29,6 +33,7 @@ def nearest_base(data):
 					print("new best zip code {}".format(zip))
 					lowest = distance
 					result = zip
+		print("best zip - {}".format(result))
 		return result
 	except urllib.error.URLError as e:
 		print(e.reason)
