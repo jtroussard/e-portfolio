@@ -9,7 +9,7 @@ from lib import tools as t
 
 app = Flask(__name__)
 
-app.config.from_pyfile('lib/pro_config.py')
+app.config.from_pyfile('untracked/pro_config.py')
 mail = Mail(app)
 
 # Root Mapping
