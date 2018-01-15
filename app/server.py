@@ -34,15 +34,12 @@ def index():
 				print(er)
 		else:
 			msg = Message()
-			if request.form['subject']:
-				msg.subject = request.form['subject']
-			else:
-				msg.subject = "E-Portfolio Site Form FeedBack"
+			msg.subject = "E-Portfolio Site Form FeedBack"
 			msg.add_recipient(TARGET_EMAIL)
 			msg.body = request.form['comments']
 			mail.send(msg)
 			alert = True
-			return render_template('index.html', form=form, jump=jump, alert=alert, homebase=homebase)
+			return render_template('index.html', form=form, jump=jump, alert=alert, homebase=homebase, base_data=base_data)
 	return render_template('index.html', form=form, jump=jump, alert=alert, base_data=base_data)
 
 # Start the server
