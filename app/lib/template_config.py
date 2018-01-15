@@ -28,12 +28,13 @@
 # ZIP_FORMAT         | string  | DO NOT CHANGE
 # ZIP_UNIT           | string  | DO NOT CHANGE
 # HOMEBASES          | list    | Enter zipcodes of your addresses.
-# ADDRESSES          | dict    | Enter you full addresses.
+# ADDRESSES          | ls/dict | List of dict entries. Enty: Full addresses.
 # DEFAULT_ZIP        | int     | Failsafe for dynamic addresses.
+# DYNAMIC_ADDRESS    | boolean | False = Uses DEFAULT_ZIP
 
 # Server
-DEBUG = True
-SECRET_KEY = ""
+DEBUG=True
+SECRET_KEY=""
 
 # Mail
 MAIL_SERVER=""
@@ -45,6 +46,7 @@ MAIL_DEFAULT_SENDER=""
 TARGET_EMAIL=""
 
 # Dynamic/Static Address
+DYNAMIC_ADDRESS=False
 ZIP_API_KEY=""
 ZIP_FORMAT="json"
 ZIP_UNIT="mile"
