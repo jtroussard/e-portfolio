@@ -4,12 +4,12 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 from flask_wtf import FlaskForm
 from flask_mail import Mail, Message
 from forms import ContactForm
-from lib.vars import *
+from lib.config.config import *
 from lib import tools as t
 
 app = Flask(__name__)
 
-app.config.from_pyfile('untracked/pro_config.py')
+app.config.from_pyfile('lib/config/config.py')
 mail = Mail(app)
 
 # Root Mapping
@@ -44,9 +44,4 @@ def index():
 
 # Start the server
 if __name__ == '__main__':
-
-	# Production
-	#app.run()
-
-	# Development - Cloud 9
-	app.run(host=os.getenv('IP', '0.0.0.0'), port = int(os.getenv('PORT', 8080)), debug=True)
+	app.run()

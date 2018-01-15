@@ -2,7 +2,7 @@ import urllib.request
 import json
 import logging
 import datetime
-from lib.vars import *
+from lib.config.config import *
 
 def get_location(request):
 	ip = request.environ['REMOTE_ADDR']
@@ -16,7 +16,6 @@ def get_location(request):
 	except urllib.error.HTTPError as err_http:
 		logging.error("[{}]tools: {}".format(datetime.datetime.now(), err_http.reason))
 		return {'postal': DEFAULT_ZIP}
-
 
 def get_zipcode(data):
 	if not 'postal' in data:
@@ -39,6 +38,3 @@ def nearest_base(data):
 	except urllib.error.URLError as e:
 		logging.error("[{}]tools:{}".format(datetime.datetime.now(), e.reason))
 		return DEFAULT_ZIP
-
-
-
