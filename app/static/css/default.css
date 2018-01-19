@@ -814,6 +814,19 @@ properly.
    max-width: 100%;
 }
 
+/*  4. Trail ---------------------------------------------------------- */
+
+.school-logo {
+    text-decoration: none;
+    max-width: 90px;
+    margin-right: 2em;
+}
+
+.school {
+    padding-top: 10px; 
+    padding-left: 95px;
+}
+
 
 
 
