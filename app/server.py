@@ -39,7 +39,7 @@ def index():
         if form.validate() == False:
             jump = "#contact"
             for er in form.errors:
-                print(er)
+                print("Error: Form validation/submission error\n\t{}\n".format(er))
         else:
             msg = Message()
             msg.subject = "E-Portfolio Site Form FeedBack"
