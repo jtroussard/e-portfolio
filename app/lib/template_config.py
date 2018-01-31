@@ -53,4 +53,4 @@ ZIP_UNIT="mile"
 HOMEBASES=[00000]
 ADDRESSES=[
 {"street": "123 Main Street", "city": "Liberty Town", "state": "VA", "zipcode": 00000}]
-DEFAULT_ZIP=00000
+DEFAULT_ZIP=ADDRESSES[0]['zipcode']
