@@ -74,6 +74,7 @@ header .banner-text h3 {
 header .banner-text h3 span,
 header .banner-text h3 a {
    color: #fff;
+   font-weight: bold;
 }
 header .banner-text hr {
    width: 60%;
@@ -279,6 +280,16 @@ ul#nav li.current a { color: #F06000; }
    font: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
 }
+#resume .info-degree {
+   font: 16px/24px 'librebaskerville-italic', serif;
+   color: #8c7c93;
+   margin-bottom: 3px;
+   margin-top: 3px;
+}
+#resume .info-degree span {
+   margin-right: 5px;
+   margin-left: 5px;
+}
 
 /*----------------------------------------------*/
 /*	Skill Bars
@@ -324,38 +335,38 @@ ul#nav li.current a { color: #F06000; }
    border-radius: 3px 0 0 3px;
 }
 
-.java {
+.third {
   	width: 60%;
   	-moz-animation: java 2s ease;
   	-webkit-animation: java 2s ease;
 }
-.sql {
+.fifth {
   	width: 45%;
   	-moz-animation: sql 2s ease;
   	-webkit-animation: sql 2s ease;
 }
-.gcp {
+.fourth {
   	width: 50%;
   	-moz-animation: gcp 2s ease;
   	-webkit-animation: gcp 2s ease;
 }
-.python {
+.first {
   	width: 85%;
   	-moz-animation: python 2s ease;
   	-webkit-animation: python 2s ease;
 }
-.javascript {
-  	width: 40%;
+.seventh {
+  	width: 38%;
   	-moz-animation: javascript 2s ease;
   	-webkit-animation: javascript 2s ease;
 }
-.html5 {
+.second {
   	width: 80%;
   	-moz-animation: html5 2s ease;
   	-webkit-animation: html5 2s ease;
 }
-.flask {
-  	width: 45%;
+.sixth {
+  	width: 40%;
   	-moz-animation: flask 2s ease;
   	-webkit-animation: flask 2s ease;
 }

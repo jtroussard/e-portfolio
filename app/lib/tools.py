@@ -2,7 +2,7 @@ import urllib.request
 import json
 import logging
 import datetime
-from lib.config.config import *
+from lib.config import *
 
 def get_location(request):
 	ip = request.environ['REMOTE_ADDR']

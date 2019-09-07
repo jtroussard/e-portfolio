@@ -37,7 +37,7 @@ DEBUG=True
 SECRET_KEY=""
 
 # Mail
-MAIL_SERVER=""
+MAIL_SERVER="smtp.gmail.com"
 MAIL_PORT=465
 MAIL_USE_SSL=True
 MAIL_USERNAME=""
@@ -52,5 +52,8 @@ ZIP_FORMAT="json"
 ZIP_UNIT="mile"
 HOMEBASES=[00000]
 ADDRESSES=[
-{"street": "123 Main Street", "city": "Liberty Town", "state": "VA", "zipcode": 00000}]
+{"street": "", "city": "", "state": "", "zipcode": }]
 DEFAULT_ZIP=ADDRESSES[0]['zipcode']
+
+# Resume Data
+FILE_LOC = "./data/resume.json"

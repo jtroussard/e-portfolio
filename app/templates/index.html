@@ -16,9 +16,8 @@
       </nav>
       <div class="row banner">
         <div class="banner-text">
-          <h1 class="responsive-headline">Nice to meet you.</h1>
-          <h3>My name is <span>Jacques Troussard</span>. I am a recent <span>Computer Science</span> graduate of University of Mary Washington looking to break into the industry as a <span>software/ai/web developer</span>. I'm <span>highly motivated</span>, always <span>learning</span>, and have <span>international</span> work experience. Please continue to learn more.
-          </h3>
+          <h1 class="responsive-headline" style="font-size: 64px;padding-bottom: 15px;">Hello!</h1>
+          <h3>{{ r_greeting|safe }}</h3>
           <hr />
           <ul class="social">
             <li><a href="https://www.facebook.com/jacques.troussard"><i class="fa fa-facebook"></i></a></li>
@@ -45,20 +44,24 @@
             <div class="columns contact-details">
               <h2>Contact Details</h2>
               <p class="address">
-                <span>Jacques Troussard</span>
+                <span>{{ r_fullname }}</span>
                 <br>
                 <span>{{ base_data.street }}<br>
-                  {{ base_data.city }}, {{ base_data.state }} {{ base_data.zipcode}} US
+                  {{ base_data.city }}, {{ base_data.state }} {{ base_data.zipcode }} US
                 </span>
                 <br>
-                <span>(925)478-0337</span>
+                <span>{{ r_cellphone }}</span>
                 <br>
-                <span>jacques.troussard@gmail.com</span>
+                <span>{{ r_email }}</span>
               </p>
             </div>
             <div class="columns download">
               <p>
-                <a href="static/files/CV-{{ base_data.zipcode }}-troussard.pdf" class="button"><i class="fa fa-download"></i>Download Resume</a>
+                <!--This is cool so I'm going to leave it in, basically I made different version of my resume based on location and let the visitors IP address determine which resume was available for download. For now I don't think I need this YET (think french vs english version) just going to hard code something for now.
+                <a href="static/files/CV-{{ base_data.zipcode }}-troussard.pdf" class="button"><i class="fa fa-download"></i>Download Resume</a>-->
+
+                <!-- You should host your resume somewhere were it can be version controlled and then have this link activate a pdf generator and then deliver the link/download -->
+                <a href="static/files/resume_troussard.pdf" class="button"><i class="fa fa-download"></i>Download Resume</a>
               </p>
             </div>
           </div>
@@ -71,13 +74,30 @@
           <h1><span>Education</span></h1>
         </div>
         <div class="nine columns main-col">
-          <div class="row item">
-            <div class="twelve columns">
-              <div class="school-banner">
-               <a href="https://www.umw.edu" class="school-logo" target="_blank"><img src="/static/images/logo_umw_white.png" class="school-logo float-left img-responsive border border-dark"></a>
-              <h3>University of Mary Washington</h3>
-              <p class="info">Bachelor of Science, Computer Science <span>&bull;</span> GPA 3.33 <span>&bull;</span> <em class="info">December 2017</em>
-            </p></div>
+          {% for e_data in r_education %}
+            <div class="row item">
+              <div class="twelve columns">
+                <div class="school-banner" style="padding-bottom: 50px;">
+
+                  <a href="{{ e_data.school_website }}" class="school-logo" target="_blank"><img src="/static/images/{{ e_data.logo_file_name }}" class="school-logo float-left img-responsive border border-dark"></a>
+                  <br>
+
+              <h3>{{ e_data.school }}</h3>
+              {% for degree in e_data.degrees %}
+              <br>
+              <p class="info-degree">
+                {{ degree.type }}, {{ degree.concentration }}
+
+                <span>&bull;</span>
+                {% if degree.GPA %}
+                GPA {{ degree.GPA }}
+                {% endif %}
+                 <span>&bull;</span> <em class="info">{{ degree.graduation_month }} {{ degree.graduation_year }}</em>
+              </p>
+              {% endfor %}
+            </div>
+
+            <!-- taking this stuff out for now.
             <p>
               <ul class="disc">
                 <li>Dean's List Fall 2016</li>
@@ -92,9 +112,14 @@
                   </ul>
                 </li>
               </ul>
-            </p>
+            </p> -->
           </div>
         </div>
+        {% endfor %}
+      </div>
+    </div>
+
+        <!--
         <div class="row item">
           <div class="twelve columns">
             <a href="https://www.nvcc.edu" class="school-logo" target="_blank">
@@ -116,69 +141,42 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="row work">
       <div class="three columns header-col">
         <h1><span>Work</span></h1>
       </div>
       <div class="nine columns main-col">
-        <div class="row item">
+        {% for w_data in r_work %}
+        <div class="row item" style="padding-bottom: 30px;">
           <div class="twelve columns">
-            <h3>Audi Arlington</h3>
-            <p class="info">Warranty Administrator <span>&bull;</span> Arlington, VA, USA<span>&bull;</span> <em class="date">May 2014 - Janurary 2015</em></p>
+            <h3>{{ w_data.company }}</h3>
+            <p class="info-degree">{{ w_data.position }}<span>&bull;</span>
+             {{ w_data.city }}, 
+             {% if w_data.country == 'USA' %}
+              {{ w_data.state }},
+             {% endif %}
+              {{ w_data.country }}<span>&bull;</span> <em class="info">
+            {{ w_data.start.month }} 
+            {{ w_data.start.year }} - 
+            {% if w_data.end_date == "present" %}
+            Present
+            {% else %}
+            {{ w_data.end.month }} 
+            {{ w_data.end.year }}
+            {% endif %}
+            </em></p>
             <ul class="disc">
-              <li>Reviewed up to 100 warranty claims per day, which required the parsing of technical descriptions and supporting test data from technicians.</li>
-              <li>Worked with several departments to ensure that responsible parties would deliver appropriate documentation for each stage of the repair process ensuring the claim would be paid.</li>
+            {% if w_data.end_date == "present" %}
+              {% for bullet in w_data.bullets %}
+                <li> {{ bullet }} </li>
+              {% endfor %}
+            {% endif %}
             </ul>
           </div>
         </div>
-        <div class="row item">
-          <div class="twelve columns">
-            <h3>HATS Facilities Management Services</h3>
-            <p class="info">Engineer/Management <span>&bull;</span> Dubai, United Arab Emirates<span>&bull;</span> <em class="date">October 2010 - October 2013</em></p>
-            <ul class="disc">
-              <li>Supervised maintenance and restoration projects for hospitality, residential, and industrial properties.
-                <ul>
-                  <li>Primary clients:
-                    <ul>
-                      <li>Ritz-Carlton Dubai Marina</li>
-                      <li>Le Meridian Dubai Hotel</li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <li>Performed site surveys of primary building systems.</li>
-              <li>Met with and vetted vendors/subcontractors.</li>
-              <li>Work on several projects with teams from very diverse cultural, language, and religious backgrounds. (European, South Asian, Middle Eastern)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row item">
-          <div class="twelve columns">
-            <h3>Mercedes-Benz of Honolulu</h3>
-            <p class="info">Warranty Administrator <span>&bull;</span> Honolulu, HI, USA<span>&bull;</span> <em class="date">August 2009 - July 2010</em></p>
-            <ul class="disc">
-              <li>Maintained warranty standards across three different islands.</li>
-              <li>Processed claims valued over $20,000.</li>
-              <li>Helped process necessary internal paperwork to maintain an in-house loaner fleet of over 70 vehicles.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row item">
-          <div class="twelve columns">
-            <h3>Obsidian Motors: Mercedes-Benz Repair Center</h3>
-            <p class="info">Service Advisor <span>&bull;</span> Oakley, CA, USA<span>&bull;</span> <em class="date">September 2008 - July 209</em></p>
-            <ul class="disc">
-              <li>Met with repair shop clients to ascertain needs and plan service work. Explained services for repairs and outlined costs.</li>
-              <li>Coordinated with staff and clients for shuttle rides and loaner vehicles.</li>
-              <li>Sold any additional services/repairs if necessary.</li>
-              <li>Managed claims with insurance and third party warranty companies.</li>
-              <li>Maintained on-line parts sales website and operations.</li>
-            </ul>
-          </div>
-        </div>
+        {% endfor %}
       </div>
-    </div>
     <div class="row skill">
       <div class="three columns header-col">
         <h1><span>Skills</span></h1>
@@ -188,13 +186,20 @@
         </p>
         <div class="bars">
           <ul class="skills">
-            <li><span class="bar-expand java"></span><em>Java</em></li>
-            <li><span class="bar-expand sql"></span><em>PostgreSQL</em></li>
-            <li><span class="bar-expand gcp"></span><em>Google Cloud Platform</em></li>
-            <li><span class="bar-expand python"></span><em>Python</em></li>
-            <li><span class="bar-expand javascript"></span><em>JavaScript</em></li>
-            <li><span class="bar-expand html5"></span><em>HTML5</em></li>
-            <li><span class="bar-expand flask"></span><em>Flask</em></li>
+            <li><span class="bar-expand third"></span>
+              <em>{{ r_technical.skills_rank[2] }}</em></li>
+            <li><span class="bar-expand fifth"></span>
+              <em>{{ r_technical.skills_rank[4] }}</em></li>
+            <li><span class="bar-expand first"></span>
+              <em>{{ r_technical.skills_rank[0] }}</em></li>
+            <li><span class="bar-expand seventh"></span>
+              <em>{{ r_technical.skills_rank[6] }}</em></li>
+            <li><span class="bar-expand second"></span>
+              <em>{{ r_technical.skills_rank[1] }}</em></li>
+            <li><span class="bar-expand fourth"></span>
+              <em>{{ r_technical.skills_rank[3] }}</em></li>
+            <li><span class="bar-expand sixth"></span>
+              <em>{{ r_technical.skills_rank[5] }}</em></li>
           </ul>
         </div>
       </div>
@@ -217,6 +222,21 @@
                   <div class="portfolio-item-meta">
                     <h5>Warehouse Inventory Project</h5>
                     <p>Web Application</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="icon-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="columns portfolio-item">
+            <div class="item-wrap">
+              <a href="#modal-06" title="">
+                <img alt="" src="static/images/portfolio/linkedin.png">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>LinkedIn Share Assist</h5>
+                    <p>Automated Terminal App</p>
                   </div>
                 </div>
                 <div class="link-icon"><i class="icon-plus"></i></div>
@@ -302,6 +322,28 @@
         </div>
         <div class="link-box">
           <a href="https://github.com/jtroussard/warehouse" target="_blank"><i class="fa fa-github fa-2x"></i>GitHub Repo</a>
+          <a class="popup-modal-dismiss">Close</a>
+        </div>
+      </div>
+      <div id="modal-06" class="popup-modal mfp-hide">
+        <img class="scale-with-grid" src="static/images/portfolio/modals/m-linkedin.png" alt="" />
+        <div class="description-box">
+          <h3>LinkedIn Share Assist</h3>
+          <p><strong>Personal Project</strong></p>
+          <p>This is a terminal application meant to be a fire and forget auto posting program. First it extracts job opportunities from the Dollar Bank Career website, then it filters and formats the data to be posted to LinkedIn, under the users personal account. Several configuration files help control all these behaviors and the automated process, but the program also includes a manual mode. This project allowed me to practice and familiarize my self with the following technologies:
+            <ul class="disc">
+              <li>Python</li>
+              <li>LinkedIn API</li>
+              <li>Sublime, Vim</li>
+              <li>Bash, Unix, Linux, Ubuntu</li>
+              <li>CRON</li>
+              <li>smtp servers</li>
+            </ul>
+          </p>
+          <span class="categories"><i class="fa fa-tag"></i>Business, Terminal Application, Automation</span>
+        </div>
+        <div class="link-box">
+          <a href="https://github.com/jtroussard/linkedin_assist" target="_blank"><i class="fa fa-github fa-2x"></i>GitHub Repo</a>
           <a class="popup-modal-dismiss">Close</a>
         </div>
       </div>
@@ -455,6 +497,8 @@
   </div>
 </div>
 </section>
+
+<!--
 <section id="contact">
 <div class="row section-head" id="contact_jump">
   <div class="two columns header-col">
@@ -465,6 +509,9 @@
     </p>
   </div>
 </div>
+-->
+
+<!--
 <div class="row">
   <div class="eight columns">
     <form method="POST" action="{{ url_for('index') }}" >
@@ -500,6 +547,9 @@
       </fieldset>
     </form>
   </div>
+-->
+
+<!--
   <aside class="four columns footer-widgets">
     <div class="widget widget_contact">
       <h4>Address and Phone</h4>
@@ -523,19 +573,24 @@
     </div>
   </aside>
 </div>
+-->
+
+<!--
 </section>
 {% if jump %}
 <script>document.location.hash = '{{ jump }}';</script>
 {% endif %}
+-->
+
 <footer>
 <div class="row">
   <div class="twelve columns">
     <ul class="social-links">
-      <li><a href="https://www.facebook.com/jacques.troussard"><i class="fa fa-facebook"></i></a></li>
-      <li><a href="https://twitter.com/TekkSparrow"><i class="fa fa-twitter"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/jacques-troussard-5225066a/"><i class="fa fa-linkedin"></i></a></li>
-      <li><a href="https://www.youtube.com/channel/UCFVKs9Lk2D49pu_NfpYSl6w?view_as=subscriber"><i class="fa fa-youtube"></i></a></li>
-      <li><a href="https://github.com/jtroussard"><i class="fa fa-github"></i></a></li>
+      <li><a href="https://www.facebook.com/jacques.troussard" target="_blank"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="https://twitter.com/TekkSparrow" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/jacques-troussard-5225066a/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+      <li><a href="https://www.youtube.com/channel/UCFVKs9Lk2D49pu_NfpYSl6w?view_as=subscriber" target="_blank"><i class="fa fa-youtube"></i></a></li>
+      <li><a href="https://github.com/jtroussard" target="_blank"><i class="fa fa-github"></i></a></li>
     </ul>
     <ul class="cpt">
     </ul>
