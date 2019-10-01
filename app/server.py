@@ -7,11 +7,7 @@ from forms import ContactForm
 from lib.config import *
 from lib import tools as t
 
-app = Flask(__name__, static_url_path='')
-
-@app.route('.well-known/pki-validation/')
-def send():
-    return app.send_from_directory('5D4D96B080D656A6B34A29C64894B85.txt')
+app = Flask(__name__)
 
 app.config.from_pyfile('lib/config.py')
 
