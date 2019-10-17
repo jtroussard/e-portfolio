@@ -1,0 +1,277 @@
+[
+	{
+		"greeting":"My name is <span>Jacques Troussard</span>, and I am a <span>Programming Addict</span>. I have 2 years of software development experience with the <span>largest</span> mututal bank in the United States, Dollar Bank, and countless hours working on a variety of other projects. As a <span>Computer Science</span> graduate of <span>University of Mary Washington</span>, I always try to solve problems through the lens of a scientist. This leads me to constant exposure to <span>new ideas, technologies, and concepts</span>. If any of this is interesting, I encourage you to read on below. <span>Enjoy</span>.",
+		"vitals": {
+			"first name": "Jacques",
+			"middle name": "Jakov",
+			"last name": "Troussard",
+			"address": [
+				{
+					"street": "45 Craighead Street",
+					"city": "Pittsburgh",
+					"state": "PA",
+					"zip": "15211",
+					"country": "USA"
+				}
+			],
+			"phone": [
+				{
+					"number": 9254780337,
+					"type": "mobile"
+				}
+			],
+			"email": [
+				{
+					"address": "jacques.troussard@gmail.com",
+					"type": "personal"
+				},
+				{
+					"address": "garage.sparrow@gmail.com",
+					"type": "home server"
+				},
+				{
+					"address": "jacqueslovesrewards@gmail.com",
+					"type": "junk"
+				}
+
+			]
+		},
+		"websites": [
+			{
+				"personal": "http://developerslifefor.me",
+				"github": "https://github.com/jtroussard",
+				"linkedIn": "https://www.linkedin.com/in/jacques-troussard-5225066a/"
+			}
+		],
+		"languages": [
+			{"lang":"French","level":"B2"},
+			{"lang":"Japanese","level":"A1"}
+		],
+		"technical": {
+			"programming languages": [
+				"python",
+				"COBOL",
+				"JCL",
+				"CICS"
+			],
+			"frameworks": [
+				"django",
+				"flask"
+			],
+			"dbms": [
+				"PostgreSQL",
+				"MongoDB",
+				"IDMS"
+			],
+			"environments":[
+				"linux",
+				"ubuntu",
+				"z/OS",
+				"Windows 10"
+			],
+			"development tools":[
+				"vim",
+				"sublime",
+				"ISPF",
+				"Eclipse",
+				"IDz",
+				"RDz",
+				"CRON",
+				"Git",
+				"Endevor",
+				"IBM InterTest"
+			],
+			"deployment platforms": [
+				"Google Cloud Platform",
+				"Homebrew server"
+			],
+			"skills_rank": [
+				"Python",
+				"Linux",
+				"Flask",
+				"COBOL/JCL/CICS",
+				"Google Cloud Platform",
+				"Java",
+				"MongoDB"
+			]
+		},
+		"education": [
+			{
+				"school": "University of Mary Washington",
+				"city": "Fredericksburg",
+				"state": "VA",
+				"degrees": [
+					{
+						"type": "Bachelors of Science",
+						"concentration": "Computer Science",
+						"GPA": 3.33,
+						"graduation_month": "December",
+						"graduation_year": 2017
+					}
+				],
+				"awards": [
+					"Dean's List Fall 2017",
+					"Most Creative Honor: UMW Hackathon 2018"
+				],
+				"school_website": "https://www.umw.edu",
+				"logo_file_name": "logo_umw_white.png"
+			},
+			{
+				"school": "Community College of Northern Virginia",
+				"city": "Annandale",
+				"state": "VA",
+				"degrees": [
+					{
+						"type": "Associates of Science",
+						"concentration": "Social Science",
+						"GPA": 3.38,
+						"graduation_date": "2016-08-01T00:00:00.000Z",
+						"graduation_month": "August",
+						"graduation_year": 2016
+					},
+					{
+						"type": "Career Study Certificate",
+						"concentration": "Business Information Technology",
+						"GPA": 3.66,
+						"graduation_date": "2016-08-01T00:00:00.000Z",
+						"graduation_month": "August",
+						"graduation_year": 2016
+					}
+				],
+				"logo_file_name": "logo_nova_white.png",
+				"awards": [
+					"Honor Student of the Year (Woodbridge) 2015"
+				],
+				"school_website": "https://www.nvcc.edu/"
+			}
+		],
+		"experience": [
+			{
+				"company": "Dollar Bank FSB",
+				"city": "Pittsburgh",
+				"state": "PA",
+				"country": "USA",
+				"position": "Programmer Analyst",
+				"supervisor": "Zachary Hall",
+				"start date": "2018-02-12T00:00:00.000Z",
+				"end_date": "present",
+				"start": {
+					"year" : 2018,
+					"month": "Feburary",
+					"day": 12
+				},
+				"end": {
+					"year": 0,
+					"month": "None",
+					"day": 0
+				},
+				"job description": "My main function is the development of applications which contribute to the solution of business problems or needs of the bank. This keeps me involved with all development stages of the SDLC: Conducting research, systems analysis, obtaining approvals, presenting requirements, specifications, and development plans to committees, programming, testing, crafting documentation, and executing any and all required follow up actions.",
+				"accomplishments": [
+					"Worked on implementing Fiserv's Architect Online Banking Solution.",
+					"Worked on implementing FIS Extended Account Analysis (XAA).",
+					"Converted older HBK/Edify programs to web service calls (Architect).",
+					"Built a SharePoint site to serve as a knowledge center for after-hour actions.",
+					"Successfully purposed a backlog project system for low priority projects/tasks.",
+					"Built scripts to partially automate parallel process builds. (Python)"
+				],
+				"bullets": [
+					"Worked on implementing Fiserv's Architect Online Banking Solution.",
+					"Worked on implementing FIS Extended Account Analysis (XAA).",
+					"Converted older HBK/Edify programs to web service calls (Architect).",
+					"Built a SharePoint site to serve as a knowledge center for after-hour actions.",
+					"Successfully purposed a backlog project system for low priority projects/tasks.",
+					"Built scripts to partially automate parallel process builds. (Python)"
+				]
+
+			},
+			{
+				"company": "Audi Arlington (Rosenthal Automotive Group)",
+				"city": "Arlington",
+				"state": "VA",
+				"country": "USA",
+				"position": "Warranty Administrator",
+				"supervisor": "Jennifer Picarellio",
+				"start date": "2014-04-12T00:00:00.000Z",
+				"end_date": "2015-01-12T00:00:00.000Z",
+				"start": {
+					"year" : 2014,
+					"month": "May",
+					"day": 15
+				},
+				"end": {
+					"year": 2015,
+					"month": "January",
+					"day": 7
+				},
+				"job description": "Reviewed up to 100 warranty claims per day, which required the parsing of technical descriptions and supporting test data from technicians. Worked with several departments to ensure that responsible parties would deliver appropriate documentation for each stage of the repair process, improving turn around time on paid claims.",
+				"accomplishments": [
+					"Improved overall compliance rates, leading corporate to award the dealership with additional bonuses and privileges."
+				],
+				"bullets": [
+					"Reviewed hundreds of repair order/warranty claims per day, which required the parsing of technical descriptions and supporting test data from technicians.",
+					"Ensured all parties would supply the required test data and documentation to in order to keep claim turnaround time as low as possible.",
+					"Improved overall compliance rates, leading corporate to award the dealership with additional bonuses and privileges.",
+					"Performed self audits and built excel spreadsheets to report the figures to management."
+				]
+
+			},
+			{
+				"company": "H.A.T.S. Facilities Management Services",
+				"city": "Dubai",
+				"state": "Dubai",
+				"country": "United Arab Emirates",
+				"position": "Operations Supervisor",
+				"supervisor": "Harsha Ramamurthy",
+				"start date": "2010-10-12T00:00:00.000Z",
+				"end_date": "2013-10-12T00:00:00.000Z",
+				"start": {
+					"year" : 2010,
+					"month": "October",
+					"day": 12
+				},
+				"end": {
+					"year": 2013,
+					"month": "October",
+					"day": 5
+				},
+				"job description": "Supervised maintenance and restoration projects for hospitality, residential, and industrial properties. Primary clients included Ritz-Carlton Dubai Marina and Le Meridian Dubai Hotel. Performed site surveys of primary building systems. Along with business development responsibilities I was also tasked with vetting vendors/subcontractors. Personally worked on several projects with teams from diverse cultural, language, and religious backgrounds. (European, South Asian, Middle Eastern)",
+				"accomplishments": [],
+				"bullets": [
+					"Supervised maintenance and restoration projects for hospitality, residential,and industrial properties.",
+					"Primary clients included Ritz-Carlton Dubai Marina, Le Meridian Dubai Hotel, Sheraton Dubai Creek Hotel.",
+					"Performed site surveys of primary building systems. (MEP and HVAC)",
+					"Personally worked on several projects with teams from diverse cultural, language, and religious backgrounds. (European, South Asian, Middle Eastern)"
+				]
+
+			},
+			{
+				"company": "Mercedes-Benz of Honolulu",
+				"city": "Honolulu",
+				"state": "HI",
+				"country": "USA",
+				"position": "Warranty Administrator",
+				"supervisor": "Dan Tow",
+				"start date": "2009-08-12T00:00:00.000Z",
+				"end_date": "2010-07-12T00:00:00.000Z",
+				"start": {
+					"year" : 2009,
+					"month": "August",
+					"day": 1
+				},
+				"end": {
+					"year": 2010,
+					"month": "July",
+					"day": 22
+				},
+				"job description": "Maintained warranty standards across three different islands. Processed claims valued over $20,000. Helped process necessary internal paperwork to maintain an in-house loaner fleet of over 70 vehicles.",
+				"accomplishments": [],
+				"bullets": [
+					"Coded and reviewed warranty claims for a shop of nearly 50 technicians.",
+					"Maintained warranty standards across three islands. (Maui/Oahu/Kona)",
+					"Managed the in-house loaner fleet of 70 vehicles."
+				]
+
+			}
+		]
+	}
+]
